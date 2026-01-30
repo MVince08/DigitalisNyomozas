@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Evidence e1 = new Evidence("ABC123", "fotó", "Foto az elkövetőről elv.", 3);
         }
     }
 }

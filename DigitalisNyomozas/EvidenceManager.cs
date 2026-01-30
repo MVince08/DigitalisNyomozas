@@ -17,5 +17,15 @@ namespace DigitalisNyomozas
 
 		internal List<Evidence> EvidenceList { get => evidenceList; set => evidenceList = value; }
 
+
+		public void AddEvidence(Evidence e)
+		{
+			evidenceList.Add(e); 
+		}
+
+		public void RemoveEvidence(Evidence e)
+		{
+			evidenceList.Remove(e);
+		}
 	}
 }
