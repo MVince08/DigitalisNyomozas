@@ -10,9 +10,9 @@ namespace DigitalisNyomozas
 	{
 		private Person person;
 		private string vallomasSzoveg;
-		private int vallomasDatum;
+		private string vallomasDatum;
 
-		public Witness(Person person, string vallomasSzoveg, int vallomasDatum)
+		public Witness(Person person, string vallomasSzoveg, string vallomasDatum)
 		{
 			this.person = person;
 			this.vallomasSzoveg = vallomasSzoveg;
@@ -20,7 +20,7 @@ namespace DigitalisNyomozas
 		}
 
 		public string VallomasSzoveg { get => vallomasSzoveg; set => vallomasSzoveg = value; }
-		public int VallomasDatum { get => vallomasDatum; set => vallomasDatum = value; }
+		public string VallomasDatum1 { get => vallomasDatum; set => vallomasDatum = value; }
 		internal Person Person { get => person; set => person = value; }
 	}
 }
