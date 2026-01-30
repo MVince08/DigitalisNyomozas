@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DigitalisNyomozas
+{
+	internal class Case
+	{
+		private string ugyAzonosito;
+		private string cim;
+		private string leiras;
+		private string allapot;
+		private List<Case> szemelyek;
+		private List<Case> bizonyitekok;
+
+		public Case(string ugyAzonosito, string cim, string leiras, string allapot, List<Case> szemelyek, List<Case> bizonyitekok)
+		{
+			this.ugyAzonosito = ugyAzonosito;
+			this.cim = cim;
+			this.leiras = leiras;
+			this.allapot = allapot;
+			this.szemelyek = szemelyek;
+			this.bizonyitekok = bizonyitekok;
+		}
+
+		public string UgyAzonosito { get => ugyAzonosito; set => ugyAzonosito = value; }
+		public string Cim { get => cim; set => cim = value; }
+		public string Leiras { get => leiras; set => leiras = value; }
+		public string Allapot { get => allapot; set => allapot = value; }
+		internal List<Case> Szemelyek { get => szemelyek; set => szemelyek = value; }
+		internal List<Case> Bizonyitekok { get => bizonyitekok; set => bizonyitekok = value; }
+	}
+}
