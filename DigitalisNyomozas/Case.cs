@@ -31,5 +31,34 @@ namespace DigitalisNyomozas
 		public string Allapot { get => allapot; set => allapot = value; }
 		internal List<Case> Szemelyek { get => szemelyek; set => szemelyek = value; }
 		internal List<Case> Bizonyitekok { get => bizonyitekok; set => bizonyitekok = value; }
+
+		public void CaseStatus()
+		{
+			string aktualisStatusz = "";
+			aktualisStatusz = this.allapot;
+			Console.WriteLine($"Case aktuális státusza: {aktualisStatusz}");
+			Console.WriteLine("Szeretnéd megváltotani az allapotot?");
+			string x = Console.ReadLine();
+			if (x == "i")
+			{
+				Console.WriteLine("Mire szeretnéd megváltoztatni? (N-nyitott, F-folymatban, L-lezart)");
+				string y = Console.ReadLine();
+				if (y == "N")
+				{
+					aktualisStatusz = "Nyitott";
+					Console.WriteLine("Állapot megváltoztatva Nyitottra");
+				}
+				if (y == "F")
+				{
+					aktualisStatusz = "Folyamatban";
+					Console.WriteLine("Állapot megváltoztatva Folyamatban lévőre");
+				}
+				if(y == "L")
+				{
+					aktualisStatusz = "Lezárt";
+					Console.WriteLine("Állapot megváltoztatva Lezárt állapotra");
+				}
+			}
+		}
 	}
 }
