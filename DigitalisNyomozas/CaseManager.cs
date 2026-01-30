@@ -15,6 +15,6 @@ namespace DigitalisNyomozas
 			this.ugyek = ugyek;
 		}
 
-		internal List<Case> Ugyek { get => ugyek; set => ugyek = value; }
+		public List<Case> Ugyek { get => ugyek; set => ugyek = value; }
 	}
 }
