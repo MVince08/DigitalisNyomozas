@@ -24,8 +24,14 @@ namespace DigitalisNyomozas
 			this.szemelyek = szemelyek;
 			this.bizonyitekok = bizonyitekok;
 		}
-
-		public string UgyAzonosito { get => ugyAzonosito; set => ugyAzonosito = value; }
+        public Case(string ugyAzonosito, string cim, string leiras, string allapot)
+        {
+            this.ugyAzonosito = ugyAzonosito;
+            this.cim = cim;
+            this.leiras = leiras;
+            this.allapot = allapot;
+        }
+        public string UgyAzonosito { get => ugyAzonosito; set => ugyAzonosito = value; }
 		public string Cim { get => cim; set => cim = value; }
 		public string Leiras { get => leiras; set => leiras = value; }
 		public string Allapot { get => allapot; set => allapot = value; }

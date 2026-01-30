@@ -8,13 +8,20 @@ namespace DigitalisNyomozas
 {
 	internal class CaseManager
 	{
-		List<Case> ugyek;
+		List<Case> ugyek = new List<Case>();
 
-		public CaseManager(List<Case> ugyek)
+		public CaseManager()
 		{
-			this.ugyek = ugyek;
+
 		}
 
 		public List<Case> Ugyek { get => ugyek; set => ugyek = value; }
-	}
+
+
+		public void UgyLetrehozas(string ugyAzonosito, string cim, string leiras, string allapot)
+		{
+			ugyek.Add(new Case( ugyAzonosito, cim, leiras, allapot));
+        }
+
+    }
 }
