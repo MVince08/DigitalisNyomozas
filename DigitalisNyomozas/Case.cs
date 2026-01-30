@@ -48,12 +48,12 @@ namespace DigitalisNyomozas
 					aktualisStatusz = "Nyitott";
 					Console.WriteLine("Állapot megváltoztatva Nyitottra");
 				}
-				if (y == "F")
+				else if (y == "F")
 				{
 					aktualisStatusz = "Folyamatban";
 					Console.WriteLine("Állapot megváltoztatva Folyamatban lévőre");
 				}
-				if(y == "L")
+				else if (y == "L")
 				{
 					aktualisStatusz = "Lezárt";
 					Console.WriteLine("Állapot megváltoztatva Lezárt állapotra");
