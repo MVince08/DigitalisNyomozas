@@ -110,7 +110,7 @@ namespace DigitalisNyomozas
 						do
 						{
 							Console.WriteLine("Bizonyítékok kezelését választotta. Mit szeretne csinálni? ");
-							Console.WriteLine("1. Bizonyítékok rögzítése\n2. Kilépés");
+							Console.WriteLine("1. Bizonyítékok rögzítése\n2. Bizonyíték törlése\n3. Kilépés");
 							do
 							{
 								beker = int.Parse(Console.ReadLine());
@@ -134,6 +134,21 @@ namespace DigitalisNyomozas
 									d1.Bizonyitekok.Add(newcase);
 									break;
 								case 2:
+									Console.WriteLine("Bizonyítékok törlését választotta.");
+									Console.WriteLine("Melyik bizonyítékot akarja törölni? (Bizonyítékok azonosítója)");
+									string bizonyitekBekeres = Console.ReadLine();
+
+									foreach (var item in d1.Bizonyitekok)
+									{
+										if (d1.Bizonyitekok.Contains(item))
+										{
+											d1.Bizonyitekok.Remove(item);
+											e1.RemoveEvidence(item);
+										}
+									}
+
+									break;
+								case 3:
 									Console.WriteLine("Byebye");
 									isfut2 = false;
 									break;

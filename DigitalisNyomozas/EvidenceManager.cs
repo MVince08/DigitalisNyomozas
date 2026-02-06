@@ -24,7 +24,7 @@ namespace DigitalisNyomozas
 
 		public void RemoveEvidence(Evidence e)
 		{
-			//evidenceList.Remove(e);
+			evidence.Remove(e);
 		}
 	}
 }
