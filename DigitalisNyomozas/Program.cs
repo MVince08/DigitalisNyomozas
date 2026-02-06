@@ -6,8 +6,8 @@ namespace DigitalisNyomozas
     {
         static void Main(string[] args)
         {
-            CaseManager c1 = new CaseManager();
             DataStorage d1 = new DataStorage();
+            CaseManager c1 = new CaseManager(d1);
 			EvidenceManager e1 = new EvidenceManager();
             bool isfut1 = true;
             bool isfut2 = true;
@@ -30,7 +30,7 @@ namespace DigitalisNyomozas
 						do
 						{ 
 						Console.WriteLine("Mit szeretne csinálni?");
-						Console.WriteLine("1. Ügy felvétele\n2. Ügy állapota\n3. Kilépés");
+						Console.WriteLine("1. Ügy felvétele\n2. Ügy állapota\n3. Ügy listázása\n4. Kilépés");
 						do
 						{
 							beker = int.Parse(Console.ReadLine());
@@ -49,9 +49,6 @@ namespace DigitalisNyomozas
 									Console.WriteLine("Adja meg az ügy állapotát: ");
 									string ugyallapot = Console.ReadLine();
 									c1.UgyLetrehozas(ugyazonosito, ugycim, ugyleiras, ugyallapot);
-
-									Case newcase = new(ugyazonosito, ugycim, ugyleiras, ugyallapot);
-									d1.Ugyek.Add(newcase);
 									break;
 								case 2: //Állapot megváltoztatása
 									Console.WriteLine("Melyik case-t szeretnéd megváltoztatni?(Ugynek az Azonositóját kérem):  ");
@@ -64,7 +61,12 @@ namespace DigitalisNyomozas
 										}
 									}
 									break;
-								case 3:
+
+								case 3://Ügy kilistázása
+									c1.ListCases();
+                                    break;
+
+                                case 4:
 									Console.WriteLine("ByeBye");
 									isfut2 = false;
 									break;

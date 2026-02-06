@@ -38,5 +38,10 @@ namespace DigitalisNyomozas
 		public List<Case> Szemelyek { get => szemelyek; set => szemelyek = value; }
 		public List<Case> Bizonyitekok { get => bizonyitekok; set => bizonyitekok = value; }
 
+
+        public override string ToString()
+        {
+			return $"Ügy Azonosítója: {this.ugyAzonosito}, Ügy Címe: {this.cim}, Ügy Leírása: {leiras}, Ügy Állapota: {allapot}";
+        }
 	}
 }

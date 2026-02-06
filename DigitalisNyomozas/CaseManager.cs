@@ -8,20 +8,21 @@ namespace DigitalisNyomozas
 {
 	internal class CaseManager
 	{
-		List<Case> ugyek = new List<Case>();
 		List<Person> szemely = new List<Person>();
+        DataStorage d1 = null;
 
-		public CaseManager()
+
+        public CaseManager(DataStorage d1)
 		{
-
+			this.d1 = d1;
 		}
 
-		public List<Case> Ugyek { get => ugyek; set => ugyek = value; }
+		public List<Case> Ugyek { get => d1.Ugyek;}
 
 
 		public void UgyLetrehozas(string ugyAzonosito, string cim, string leiras, string allapot)
 		{
-			ugyek.Add(new Case(ugyAzonosito, cim, leiras, allapot));
+			d1.Ugyek.Add(new Case(ugyAzonosito, cim, leiras, allapot));
 		}
 
 		public void SzemelyHozzaadas(string name, int age, string megjegyzes)
@@ -60,7 +61,14 @@ namespace DigitalisNyomozas
 					Console.WriteLine("Állapot megváltoztatva Lezárt állapotra");
 				}
 			}
-
 		}
-	}
+		public void ListCases()
+		{
+            Console.WriteLine("Ügy kilistázását választotta.");
+            foreach (var item in d1.Ugyek)
+            {
+                Console.WriteLine(item);
+            }
+        }
+    }
 }
