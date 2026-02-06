@@ -41,7 +41,7 @@ namespace DigitalisNyomozas
 
         public override string ToString()
         {
-			return $"Ügy Azonosítója: {this.ugyAzonosito}, Ügy Címe: {this.cim}, Ügy Leírása: {leiras}, Ügy Állapota: {allapot}";
+			return $"\nÜgy Azonosítója: {this.ugyAzonosito}, Ügy Címe: {this.cim}, Ügy Leírása: {leiras}, Ügy Állapota: {allapot}\n";
         }
 	}
 }

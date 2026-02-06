@@ -40,15 +40,8 @@ namespace DigitalisNyomozas
 							{
 
 								case 1: // Ügy létrehozása
-									Console.WriteLine("Adja meg az ügy Azonosítóját: ");
-									string ugyazonosito = Console.ReadLine();
-									Console.WriteLine("Adja meg az ügy címét: ");
-									string ugycim = Console.ReadLine();
-									Console.WriteLine("Adja meg az ügy leírását: ");
-									string ugyleiras = Console.ReadLine();
-									Console.WriteLine("Adja meg az ügy állapotát: ");
-									string ugyallapot = Console.ReadLine();
-									c1.UgyLetrehozas(ugyazonosito, ugycim, ugyleiras, ugyallapot);
+									c1.UgyLetrehozas();
+									
 									break;
 								case 2: //Állapot megváltoztatása
 									Console.WriteLine("Melyik case-t szeretnéd megváltoztatni?(Ugynek az Azonositóját kérem):  ");
@@ -88,17 +81,7 @@ namespace DigitalisNyomozas
 							switch (beker)
 							{
 								case 1:
-									Console.WriteLine("Személy felvételét választotta.");
-									Console.WriteLine("Adja meg a személy nevét");
-									string szemelyneve = Console.ReadLine();
-									Console.WriteLine("Adja meg a személy életkorát");
-									int szemelyeletkora = int.Parse(Console.ReadLine());
-									Console.WriteLine("Adja meg a személy megjegyzését");
-									string szemelymegjegyzese = Console.ReadLine();
-									c1.SzemelyHozzaadas(szemelyneve, szemelyeletkora, szemelymegjegyzese);
-
-									Person newcase = new(szemelyneve, szemelyeletkora, szemelymegjegyzese);
-									d1.Szemelyek.Add(newcase);
+									c1.SzemelyHozzaadas();
 									break;
 								case 2:
 									Console.WriteLine("ByeBye");

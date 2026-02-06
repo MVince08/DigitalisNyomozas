@@ -20,14 +20,29 @@ namespace DigitalisNyomozas
 		public List<Case> Ugyek { get => d1.Ugyek;}
 
 
-		public void UgyLetrehozas(string ugyAzonosito, string cim, string leiras, string allapot)
+		public void UgyLetrehozas()//string ugyAzonosito, string cim, string leiras, string allapot)
 		{
-			d1.Ugyek.Add(new Case(ugyAzonosito, cim, leiras, allapot));
+            Console.WriteLine("Adja meg az ügy Azonosítóját: ");
+            string ugyazonosito = Console.ReadLine();
+            Console.WriteLine("Adja meg az ügy címét: ");
+            string ugycim = Console.ReadLine();
+            Console.WriteLine("Adja meg az ügy leírását: ");
+            string ugyleiras = Console.ReadLine();
+            Console.WriteLine("Adja meg az ügy állapotát: ");
+            string ugyallapot = Console.ReadLine();
+            d1.Ugyek.Add(new Case(ugyazonosito, ugycim, ugyleiras, ugyallapot));
 		}
 
-		public void SzemelyHozzaadas(string name, int age, string megjegyzes)
+		public void SzemelyHozzaadas()//string name, int age, string megjegyzes)
 		{
-			szemely.Add(new Person(name, age, megjegyzes));
+            Console.WriteLine("Személy felvételét választotta.");
+            Console.WriteLine("Adja meg a személy nevét");
+            string szemelyneve = Console.ReadLine();
+            Console.WriteLine("Adja meg a személy életkorát");
+            int szemelyeletkora = int.Parse(Console.ReadLine());
+            Console.WriteLine("Adja meg a személy megjegyzését");
+            string szemelymegjegyzese = Console.ReadLine();
+            d1.Szemelyek.Add(new Person(szemelyneve, szemelyeletkora, szemelymegjegyzese));
 		}
 
 		public void CaseStatus(Case a)
