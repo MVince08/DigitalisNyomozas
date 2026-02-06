@@ -6,9 +6,9 @@ namespace DigitalisNyomozas
     {
         static void Main(string[] args)
         {
-            //Evidence e1 = new Evidence("ABC123", "fotó", "Foto az elkövetőről elv.", 3);
             CaseManager c1 = new CaseManager();
             DataStorage d1 = new DataStorage();
+			EvidenceManager e1 = new EvidenceManager();
             bool isfut1 = true;
             bool isfut2 = true;
 
@@ -105,6 +105,41 @@ namespace DigitalisNyomozas
 							}
 						}
 						while (isfut2);
+						break;
+					case 3: // bizonyítékok kezelése
+						do
+						{
+							Console.WriteLine("Bizonyítékok kezelését választotta. Mit szeretne csinálni? ");
+							Console.WriteLine("1. Bizonyítékok rögzítése\n2. Kilépés");
+							do
+							{
+								beker = int.Parse(Console.ReadLine());
+							}
+							while(beker < 1 && beker > 5);
+							switch (beker)
+							{
+								case 1:
+									Console.WriteLine("A Bizonyítékok rögzítését választotta.");
+									Console.WriteLine("Adja meg a bizonyíték azonosítóját: ");
+									string bizonyitekAzonosito = Console.ReadLine();
+									Console.WriteLine("Adja meg a bizonyíték típusát: ");
+									string bizonyitekTipus = Console.ReadLine();
+									Console.WriteLine("Adja meg a bizonyíték leírását: ");
+									string bizonyitekLeiras = Console.ReadLine();
+									Console.WriteLine("Adja meg a bizonyíték megbízhatóságát");
+									int bizonyitekMegbizhatosag = int.Parse(Console.ReadLine());
+									e1.AddEvidence(bizonyitekAzonosito, bizonyitekTipus, bizonyitekLeiras, bizonyitekMegbizhatosag);
+
+									Evidence newcase = new(bizonyitekAzonosito, bizonyitekTipus, bizonyitekLeiras, bizonyitekMegbizhatosag);
+									d1.Bizonyitekok.Add(newcase);
+									break;
+								case 2:
+									Console.WriteLine("Byebye");
+									isfut2 = false;
+									break;
+							}
+						}
+						while(isfut2);
 						break;
 				}
 			}

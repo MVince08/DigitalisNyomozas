@@ -8,24 +8,23 @@ namespace DigitalisNyomozas
 {
 	internal class EvidenceManager
 	{
-		private List<Evidence> evidenceList;
+		List<Evidence> evidence = new List<Evidence>();
 
-		public EvidenceManager(List<Evidence> evidenceList)
+		public EvidenceManager()
 		{
-			this.evidenceList = evidenceList;
+
 		}
 
-		internal List<Evidence> EvidenceList { get => evidenceList; set => evidenceList = value; }
+		public List<Evidence> Evidence { get => evidence; set => evidence = value; }
 
-
-		public void AddEvidence(Evidence e)
+		public void AddEvidence(string azonosito, string tipus, string leiras, int megbizhatosag)
 		{
-			evidenceList.Add(e); 
+			evidence.Add(new Evidence(azonosito, tipus, leiras, megbizhatosag));
 		}
 
 		public void RemoveEvidence(Evidence e)
 		{
-			evidenceList.Remove(e);
+			//evidenceList.Remove(e);
 		}
 	}
 }
