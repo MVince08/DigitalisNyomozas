@@ -9,6 +9,7 @@ namespace DigitalisNyomozas
 	internal class CaseManager
 	{
 		List<Case> ugyek = new List<Case>();
+		List<Person> szemely = new List<Person>();
 
 		public CaseManager()
 		{
@@ -21,6 +22,11 @@ namespace DigitalisNyomozas
 		public void UgyLetrehozas(string ugyAzonosito, string cim, string leiras, string allapot)
 		{
 			ugyek.Add(new Case(ugyAzonosito, cim, leiras, allapot));
+		}
+
+		public void SzemelyHozzaadas(string name, int age, string megjegyzes)
+		{
+			szemely.Add(new Person(name, age, megjegyzes));
 		}
 
 		public void CaseStatus(Case a)

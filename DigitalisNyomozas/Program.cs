@@ -26,10 +26,10 @@ namespace DigitalisNyomozas
 
 				switch (beker)
 				{
-					case 1:
+					case 1: // Ügyek kezelése
 						do
 						{ 
-						Console.WriteLine("Mit szeretnecsinálni");
+						Console.WriteLine("Mit szeretne csinálni?");
 						Console.WriteLine("1. Ügy felvétele\n2. Ügy állapota\n3. Kilépés");
 						do
 						{
@@ -72,10 +72,44 @@ namespace DigitalisNyomozas
 						}
 						while (isfut2);
 						break;
+					case 2: //Személyek kezelése
+
+						do
+						{
+							Console.WriteLine("Mit szeretne csinálni?");
+							Console.WriteLine("1. Személy felvétele\n2. Kilépés");
+							do
+							{
+								beker = int.Parse(Console.ReadLine());
+							}
+							while (beker < 1 && beker > 5);
+							switch (beker)
+							{
+								case 1:
+									Console.WriteLine("Személy felvételét választotta.");
+									Console.WriteLine("Adja meg a személy nevét");
+									string szemelyneve = Console.ReadLine();
+									Console.WriteLine("Adja meg a személy életkorát");
+									int szemelyeletkora = int.Parse(Console.ReadLine());
+									Console.WriteLine("Adja meg a személy megjegyzését");
+									string szemelymegjegyzese = Console.ReadLine();
+									c1.SzemelyHozzaadas(szemelyneve, szemelyeletkora, szemelymegjegyzese);
+
+									Person newcase = new(szemelyneve, szemelyeletkora, szemelymegjegyzese);
+									d1.Szemelyek.Add(newcase);
+									break;
+								case 2:
+									Console.WriteLine("ByeBye");
+									isfut2 = false;
+									break;
+							}
+						}
+						while (isfut2);
+						break;
 				}
 			}
             while (isfut1);
-                
+                 
         }
     }
 }
