@@ -85,5 +85,14 @@ namespace DigitalisNyomozas
                 Console.WriteLine(item);
             }
         }
+
+		public void ListFelhasznalo()
+		{
+            Console.WriteLine("Felhasználok kilistázását választotta.");
+            foreach (var item in d1.Szemelyek)
+            {
+                Console.WriteLine(item);
+            }
+        }
     }
 }

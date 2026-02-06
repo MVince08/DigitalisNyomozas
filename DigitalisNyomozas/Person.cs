@@ -22,5 +22,10 @@ namespace DigitalisNyomozas
 		public string Name { get => name; set => name = value; }
 		public int Age { get => age; set => age = value; }
 		public string Megjegyzes { get => megjegyzes; set => megjegyzes = value; }
+
+        public override string ToString()
+        {
+			return $"\nSzemély neve: {name}, Személy életkora: {age}, Személy megjegyzése: {megjegyzes}\n";
+        }
 	}
 }

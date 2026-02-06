@@ -72,7 +72,7 @@ namespace DigitalisNyomozas
 						do
 						{
 							Console.WriteLine("Mit szeretne csinálni?");
-							Console.WriteLine("1. Személy felvétele\n2. Kilépés");
+							Console.WriteLine("1. Személy felvétele\n2. Személyek listázása\n3. Kilépés");
 							do
 							{
 								beker = int.Parse(Console.ReadLine());
@@ -83,7 +83,10 @@ namespace DigitalisNyomozas
 								case 1:
 									c1.SzemelyHozzaadas();
 									break;
-								case 2:
+                                case 2:
+                                    c1.ListFelhasznalo();
+                                    break;
+                                case 3:
 									Console.WriteLine("ByeBye");
 									isfut2 = false;
 									break;
@@ -140,6 +143,10 @@ namespace DigitalisNyomozas
 							}
 						}
 						while(isfut2);
+						break;
+					case 6: //Kilépés
+                        Console.WriteLine("Byebye");
+						isfut1 = false;
 						break;
 				}
 			}
