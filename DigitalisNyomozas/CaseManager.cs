@@ -14,7 +14,7 @@ namespace DigitalisNyomozas
 
         public List<Case> Ugyek { get => d1.Ugyek; }
 
-        public void Menu()
+        public void MenuUgy()
         {
             int beker = 0;
             bool isfut2 = true;
@@ -38,8 +38,36 @@ namespace DigitalisNyomozas
                     case 3://Ügy kilistázása
                         ListCases();
                         break;
-
+                    case 4://Esemény felvétele
+                        EsemenyHozzaadas();
+                        break;
                     case 5:
+                        Console.WriteLine("ByeBye");
+                        isfut2 = false;
+                        break;
+                }
+            }
+            while (isfut2);
+        }
+
+        public void MenuSzemely()
+        {
+            int beker = 0;
+            bool isfut2 = true;
+            do
+            {
+                Console.WriteLine("Mit szeretne csinálni?");
+                Console.WriteLine("1. Személy felvétele\n2. Személyek listázása\n3. Kilépés");
+                beker = int.Parse(Console.ReadLine());
+                switch (beker)
+                {
+                    case 1://Személy létrehozása
+                        SzemelyHozzaadas();
+                        break;
+                    case 2://Személyek kilistázása
+                        ListFelhasznalo();
+                        break;
+                    case 3:
                         Console.WriteLine("ByeBye");
                         isfut2 = false;
                         break;
@@ -64,7 +92,11 @@ namespace DigitalisNyomozas
         public void SzemelyHozzaadas()//string name, int age, string megjegyzes)
         {
             Console.WriteLine("Személy felvételét választotta.");
-            Case ugy = UgyKerese();
+            Case ugy = UgyKereses();
+            if (ugy == null)
+            {
+                return;
+            }
             Console.WriteLine("Adja meg a személy nevét");
             string szemelyneve = Console.ReadLine();
             Console.WriteLine("Adja meg a személy életkorát");
@@ -74,6 +106,22 @@ namespace DigitalisNyomozas
             Person person = new Person(szemelyneve, szemelyeletkora, szemelymegjegyzese);
             d1.Szemelyek.Add(person);
             ugy.Szemelyek.Add(person);
+        }
+
+        public void EsemenyHozzaadas()//string name, int age, string megjegyzes)
+        {
+            Console.WriteLine("Esemény felvételét választotta.");
+            Case ugy = UgyKereses();
+            if (ugy == null)
+            {
+                return;
+            }
+            Console.WriteLine("Adja meg az esemény dátumát");
+            string esemenydatum = Console.ReadLine();
+            Console.WriteLine("Adja meg az esemény leírását");
+            string leiras = Console.ReadLine();
+            TimeLineEvent person = new TimeLineEvent(esemenydatum, leiras);
+            ugy.Esemenyek.Add(person);
         }
 
         public void CaseStatus(Case a)
@@ -111,14 +159,14 @@ namespace DigitalisNyomozas
 
         public void UgyModositas()
         {
-            Case ugy = UgyKerese();
+            Case ugy = UgyKereses();
             if (ugy != null)
             {
                 CaseStatus(ugy);
             }
         }
 
-        public Case UgyKerese()
+        public Case UgyKereses()
         {
             Console.WriteLine("Ugynek az Azonositóját kérem:  ");
             string ugyazonositoBekeres = Console.ReadLine();

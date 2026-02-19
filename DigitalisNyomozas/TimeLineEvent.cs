@@ -19,5 +19,10 @@ namespace DigitalisNyomozas
 
 		public string Date { get => date; set => date = value; }
 		public string EsemenyLeiras { get => esemenyLeiras; set => esemenyLeiras = value; }
-	}
+
+		public override string ToString()
+		{
+			return $"Esemény dátuma: {date}, Esemény leírása: {esemenyLeiras}";
+        }
+    }
 }

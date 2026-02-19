@@ -13,7 +13,8 @@ namespace DigitalisNyomozas
 		private string leiras;
 		private string allapot;
 		private List<Person> szemelyek = [];
-		private List<Case> bizonyitekok;
+		private List<TimeLineEvent> esemenyek = [];
+        private List<Case> bizonyitekok;
 
 
 		public Case(string ugyAzonosito, string cim, string leiras, string allapot, List<Person> szemelyek, List<Case> bizonyitekok)
@@ -38,11 +39,20 @@ namespace DigitalisNyomozas
 		public string Allapot { get => allapot; set => allapot = value; }
 		public List<Person> Szemelyek { get => szemelyek; set => szemelyek = value; }
 		public List<Case> Bizonyitekok { get => bizonyitekok; set => bizonyitekok = value; }
-
+        public List<TimeLineEvent> Esemenyek { get => esemenyek; set => esemenyek = value; }
 
         public override string ToString()
         {
-			return $"\nÜgy Azonosítója: {this.ugyAzonosito}, Ügy Címe: {this.cim}, Ügy Leírása: {leiras}, Ügy Állapota: {allapot}\n";
+			string s = $"\nÜgy Azonosítója: {this.ugyAzonosito}, Ügy Címe: {this.cim}, Ügy Leírása: {leiras}, Ügy Állapota: {allapot}\n";
+			if(esemenyek.Count > 0)
+			{
+                s += $"\tÜgyhöz kapcsolódó események:";
+            }
+			foreach (var item in esemenyek)
+			{
+				s += $"{item}\n";
+            }
+            return s;
         }
 	}
 }
