@@ -57,7 +57,7 @@ namespace DigitalisNyomozas
             do
             {
                 Console.WriteLine("Mit szeretne csinálni?");
-                Console.WriteLine("1. Személy felvétele\n2. Személyek listázása\n3. Kilépés");
+                Console.WriteLine("1. Személy felvétele\n2. Személyek listázása\n3. Gyanúsított felvétele\n4. Kilépés");
                 beker = int.Parse(Console.ReadLine());
                 switch (beker)
                 {
@@ -67,7 +67,10 @@ namespace DigitalisNyomozas
                     case 2://Személyek kilistázása
                         ListFelhasznalo();
                         break;
-                    case 3:
+                    case 3://Gyanúsított létrehozása
+                        GyanusitottHozzaadas();
+                        break;
+                    case 4:
                         Console.WriteLine("ByeBye");
                         isfut2 = false;
                         break;
@@ -87,6 +90,29 @@ namespace DigitalisNyomozas
             Console.WriteLine("Adja meg az ügy állapotát: ");
             string ugyallapot = Console.ReadLine();
             d1.Ugyek.Add(new Case(ugyazonosito, ugycim, ugyleiras, ugyallapot));
+        }
+
+        public void GyanusitottHozzaadas()
+        {
+            Console.WriteLine("Gyanúsított felvételét választotta.");
+            Case ugy = UgyKereses();
+            if (ugy == null)
+            {
+                return;
+            }
+            Console.WriteLine("Adja meg a gyanúsított nevét");
+            string szemelyneve = Console.ReadLine();
+            Console.WriteLine("Adja meg a gyanúsított életkorát");
+            int szemelyeletkora = int.Parse(Console.ReadLine());
+            Console.WriteLine("Adja meg a gyanúsított megjegyzését");
+            string szemelymegjegyzese = Console.ReadLine();
+            Person person = new Person(szemelyneve, szemelyeletkora, szemelymegjegyzese);
+            d1.Szemelyek.Add(person);
+            Console.WriteLine("Adja meg a gyanúsítási szintet 0-100 között");
+            int gyanusitasiSzint = int.Parse(Console.ReadLine());
+            Console.WriteLine("Adja meg a gyanúsított státuszát (szabad/megfigyelt/őrizetben)");
+            string status = Console.ReadLine();
+            Suspect suspect = new Suspect(person, gyanusitasiSzint, status);
         }
 
         public void SzemelyHozzaadas()//string name, int age, string megjegyzes)
