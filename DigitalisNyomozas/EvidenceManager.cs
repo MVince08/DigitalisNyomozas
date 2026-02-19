@@ -8,15 +8,12 @@ namespace DigitalisNyomozas
 {
 	internal class EvidenceManager
 	{
-		List<Evidence> evidence = new List<Evidence>();
 		DataStorage d1 = null;
 
         public EvidenceManager(DataStorage d1)
 		{
 			this.d1 = d1;
         }
-
-		public List<Evidence> Evidence { get => evidence; set => evidence = value; }
 
         public void AddEvidence()//string ugyAzonosito, string cim, string leiras, string allapot)
         {

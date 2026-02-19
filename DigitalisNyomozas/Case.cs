@@ -12,10 +12,11 @@ namespace DigitalisNyomozas
 		private string cim;
 		private string leiras;
 		private string allapot;
-		private List<Case> szemelyek;
+		private List<Person> szemelyek = [];
 		private List<Case> bizonyitekok;
 
-		public Case(string ugyAzonosito, string cim, string leiras, string allapot, List<Case> szemelyek, List<Case> bizonyitekok)
+
+		public Case(string ugyAzonosito, string cim, string leiras, string allapot, List<Person> szemelyek, List<Case> bizonyitekok)
 		{
 			this.ugyAzonosito = ugyAzonosito;
 			this.cim = cim;
@@ -35,7 +36,7 @@ namespace DigitalisNyomozas
 		public string Cim { get => cim; set => cim = value; }
 		public string Leiras { get => leiras; set => leiras = value; }
 		public string Allapot { get => allapot; set => allapot = value; }
-		public List<Case> Szemelyek { get => szemelyek; set => szemelyek = value; }
+		public List<Person> Szemelyek { get => szemelyek; set => szemelyek = value; }
 		public List<Case> Bizonyitekok { get => bizonyitekok; set => bizonyitekok = value; }
 
 
