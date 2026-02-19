@@ -52,7 +52,11 @@ namespace DigitalisNyomozas
 										{
 											c1.CaseStatus(item);
 										}
-									}
+										else
+										{ 
+											Console.WriteLine("Nincs ilyen ügy!");
+                                        }
+                                    }
 									break;
 
 								case 3://Ügy kilistázása
