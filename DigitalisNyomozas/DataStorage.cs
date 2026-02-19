@@ -24,6 +24,6 @@ namespace DigitalisNyomozas
 		public List<Felhasznalo> Felhasznalo { get => felhasznalo; set => felhasznalo = value; }
 		public List<Case> Ugyek { get { return ugyek; } }
 		public List<Person> Szemelyek { get => szemelyek; set => szemelyek = value; }
-		public List<Evidence> Bizonyitekok { get => bizonyitekok; set => bizonyitekok = value; }
+		public List<Evidence> Bizonyitekok { get { return bizonyitekok; } }
 	}
 }

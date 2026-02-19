@@ -25,5 +25,10 @@ namespace DigitalisNyomozas
 		public string Tipus { get => tipus; set => tipus = value; }
 		public string Leiras { get => leiras; set => leiras = value; }
 		public int MegbizhatosagiErtek { get => megbizhatosagiErtek; set => megbizhatosagiErtek = value; }
-	}
+
+		public override string ToString()
+		{
+			return $"\nBizonyíték Azonosítója: {this.azonosito}, Bizonyíték Típusa: {this.tipus}, Bizonyíték Leírása: {this.leiras}, Bizonyíték Megbízhatósági Értéke: {this.megbizhatosagiErtek}\n";
+        }
+    }
 }

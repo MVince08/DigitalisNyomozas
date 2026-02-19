@@ -8,7 +8,7 @@ namespace DigitalisNyomozas
         {
             DataStorage d1 = new DataStorage();
             CaseManager c1 = new CaseManager(d1);
-			EvidenceManager e1 = new EvidenceManager();
+			EvidenceManager e1 = new EvidenceManager(d1);
             bool isfut1 = true;
             bool isfut2 = true;
 
@@ -80,10 +80,10 @@ namespace DigitalisNyomozas
 							while (beker < 1 && beker > 5);
 							switch (beker)
 							{
-								case 1:
-									c1.SzemelyHozzaadas();
+								case 1://Személy létrehozása
+                                    c1.SzemelyHozzaadas();
 									break;
-                                case 2:
+                                case 2://Személyek kilistázása
                                     c1.ListFelhasznalo();
                                     break;
                                 case 3:
@@ -98,7 +98,7 @@ namespace DigitalisNyomozas
 						do
 						{
 							Console.WriteLine("Bizonyítékok kezelését választotta. Mit szeretne csinálni? ");
-							Console.WriteLine("1. Bizonyítékok rögzítése\n2. Bizonyíték törlése\n3. Kilépés");
+							Console.WriteLine("1. Bizonyítékok rögzítése\n2. Bizonyíték törlése\n3. Bizonyítékok kilistázása\n4. Kilépés");
 							do
 							{
 								beker = int.Parse(Console.ReadLine());
@@ -106,37 +106,27 @@ namespace DigitalisNyomozas
 							while(beker < 1 && beker > 5);
 							switch (beker)
 							{
-								case 1:
-									Console.WriteLine("A Bizonyítékok rögzítését választotta.");
-									Console.WriteLine("Adja meg a bizonyíték azonosítóját: ");
-									string bizonyitekAzonosito = Console.ReadLine();
-									Console.WriteLine("Adja meg a bizonyíték típusát: ");
-									string bizonyitekTipus = Console.ReadLine();
-									Console.WriteLine("Adja meg a bizonyíték leírását: ");
-									string bizonyitekLeiras = Console.ReadLine();
-									Console.WriteLine("Adja meg a bizonyíték megbízhatóságát");
-									int bizonyitekMegbizhatosag = int.Parse(Console.ReadLine());
-									e1.AddEvidence(bizonyitekAzonosito, bizonyitekTipus, bizonyitekLeiras, bizonyitekMegbizhatosag);
-
-									Evidence newcase = new(bizonyitekAzonosito, bizonyitekTipus, bizonyitekLeiras, bizonyitekMegbizhatosag);
-									d1.Bizonyitekok.Add(newcase);
+								case 1://Bizonyíték létrehozása
+                                    e1.AddEvidence();
 									break;
-								case 2:
-									Console.WriteLine("Bizonyítékok törlését választotta.");
+                                case 2://Bizonyíték törlése
+                                    Console.WriteLine("Bizonyítékok törlését választotta.");
 									Console.WriteLine("Melyik bizonyítékot akarja törölni? (Bizonyítékok azonosítója)");
 									string bizonyitekBekeres = Console.ReadLine();
 
-									foreach (var item in d1.Bizonyitekok)
+									for (int i = 0;e1.Evidence.Count > i; i++)
 									{
-										if (d1.Bizonyitekok.Contains(item))
+										if (e1.Evidence[i].Azonosito == bizonyitekBekeres)
 										{
-											d1.Bizonyitekok.Remove(item);
-											e1.RemoveEvidence(item);
+											e1.RemoveEvidence(e1.Evidence[i]);
 										}
-									}
+                                    }
 
+                                    break;
+								case 3://Bizonyítékok kilistázása
+                                    e1.ListEvidences();
 									break;
-								case 3:
+                                case 4:
 									Console.WriteLine("Byebye");
 									isfut2 = false;
 									break;
@@ -151,7 +141,6 @@ namespace DigitalisNyomozas
 				}
 			}
             while (isfut1);
-                 
         }
     }
 }

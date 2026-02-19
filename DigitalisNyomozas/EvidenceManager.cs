@@ -9,22 +9,40 @@ namespace DigitalisNyomozas
 	internal class EvidenceManager
 	{
 		List<Evidence> evidence = new List<Evidence>();
+		DataStorage d1 = null;
 
-		public EvidenceManager()
+        public EvidenceManager(DataStorage d1)
 		{
-
-		}
+			this.d1 = d1;
+        }
 
 		public List<Evidence> Evidence { get => evidence; set => evidence = value; }
 
-		public void AddEvidence(string azonosito, string tipus, string leiras, int megbizhatosag)
-		{
-			evidence.Add(new Evidence(azonosito, tipus, leiras, megbizhatosag));
-		}
+        public void AddEvidence()//string ugyAzonosito, string cim, string leiras, string allapot)
+        {
+            Console.WriteLine("Adja meg a bizonyíték azonosítóját: ");
+            string evidenceAzonosito= Console.ReadLine();
+            Console.WriteLine("Adja meg a bizonyíték típusát: ");
+            string evidenceTipus= Console.ReadLine();
+            Console.WriteLine("Adja meg a bizonyíték leírását: ");
+            string evidenceLeiras = Console.ReadLine();
+            Console.WriteLine("Adja meg a bizonyíték megbizhatóságát(1-5): ");
+            int evidenceAllapot = int.Parse(Console.ReadLine());
+            d1.Bizonyitekok.Add(new Evidence(evidenceAzonosito, evidenceTipus, evidenceLeiras, evidenceAllapot));
+        }
 
-		public void RemoveEvidence(Evidence e)
+        public void RemoveEvidence(Evidence e)
 		{
-			evidence.Remove(e);
-		}
-	}
+			d1.Bizonyitekok.Remove(e);
+        }
+
+        public void ListEvidences()
+        {
+            Console.WriteLine("Bizonyítékok kilistázását választotta.");
+            foreach (var item in d1.Bizonyitekok)
+            {
+                Console.WriteLine(item);
+            }
+        }
+    }
 }

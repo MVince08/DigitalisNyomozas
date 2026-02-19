@@ -8,7 +8,6 @@ namespace DigitalisNyomozas
 {
 	internal class CaseManager
 	{
-		List<Person> szemely = new List<Person>();
         DataStorage d1 = null;
 
 
